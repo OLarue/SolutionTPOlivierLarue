@@ -139,9 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Formes1765918.cpp" />
     <ClCompile Include="Main1765918.cpp" />
+    <ClCompile Include="Menus1765918.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Formes1765918.h" />
     <ClInclude Include="Menus1765918.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

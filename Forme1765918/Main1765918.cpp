@@ -39,8 +39,8 @@ int main()
       choixRemplissage = validerMenu(2 /* Menu du remplissage */, RETOUR /* Nombres d'options au menu */);
 
 		// Si l'utilisateur n'est pas revenu au menu principal
-      if (choixRemplissage != RETOUR)
-	   {
+     if (choixRemplissage != RETOUR)
+	 {
 			// Ici, l'utilisateur a fait le choix d'une forme et du remplissage, il nous reste à traiter et dessiner la forme
 			switch (choixForme)
 			{	
@@ -48,7 +48,7 @@ int main()
                // Traiter forme demande les dimensions de la forme, affiche la phrase de présentation de la forme et appelle la fonction
                // dessinant la forme
 					traiterRectangle (choixRemplissage);
-               break;
+			         break;
 			    case TRIANGLE :
 					traiterTriangle (choixRemplissage);
 					break;
@@ -59,8 +59,8 @@ int main()
 					traiterLosange (choixRemplissage);
 					break;
 			} // Fin du switch
-	   }// fin du if
-
+	 }// fin du if
+	  
       // On présente de nouveau le menu principal des choix des formes et on lit le choix de l'utilisateur
 	   choixForme = validerMenu(1 /* Menu des formes*/, QUITTER /* Nombres d'options au menu*/);
 
