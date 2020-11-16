@@ -14,6 +14,9 @@ void traiterCarre(int choixRemplissage);
 void traiterTriangle(int choixRemplissage);
 void traiterLosange(int choixRemplissage);
 
+void definirRemplissageNom(int choixRemplissage);
+void definirRemplissageNomCarre(int choixRemplissage);
+
 void remplissageChiffreDecroissantRectangle(int hauteur, int largeur); // Même que le remplissage en dessous, mais en décroissant.
 void remplissageChiffreRectangle(int hauteur, int largeur); // Pour ajouter un style différent, j'ai pensé à la place d'un # de mettre les chiffres qu'il compte, pourquoi pas hahah
 void dessinerRectangle(int hauteur, int largeur, int remplissage);// Fonction qui dessine un rectangle ou un carré dont la hauteur, la largeur et lemode de remplissage sont passés en paramètre.

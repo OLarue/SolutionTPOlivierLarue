@@ -1,8 +1,11 @@
 #include "Formes1765918.h"
 #include "Menus1765918.h"
 #include <iostream>
+#include <ctime>				// ou time.h
 
 using namespace std;
+
+
 
 
 void remplissageChiffreDecroissantRectangle(int hauteur, int largeur)
@@ -31,13 +34,13 @@ void remplissageChiffreRectangle(int hauteur, int largeur)
 
 void dessinerRectangle(int hauteur, int largeur, int remplissages) //Pour rectangle et carré
 {
-	if (remplissages == 4)
+	if (remplissages == 4) 
 	{
-		remplissageChiffreDecroissantRectangle(hauteur, largeur);
+		remplissageChiffreDecroissantRectangle(hauteur, largeur); // pour faire un carré un chiffre d'ordre décroissant, print le compteur à sa valeur maximal et fait j-- pour le diminuer donc donne effet décroissant.
 	}
 	if (remplissages == 3)
 	{
-		remplissageChiffreRectangle(hauteur, largeur);
+		remplissageChiffreRectangle(hauteur, largeur);  // pour faire un carré en chiffre d'ordre croissant, une petite facon de faire un carré au lieu de print les * , on print le compteur
 	}
 	else
 	for (int i = 0; i < largeur; i++) // for avec le i est pour la largeur ici
@@ -74,7 +77,7 @@ void dessinerRectangle(int hauteur, int largeur, int remplissages) //Pour rectan
 				}
 			}
 		}
-		cout << endl;
+		cout << endl; // pour les retour à la ligne des * et des espaces ou #
 	}
 
 	
@@ -87,14 +90,26 @@ void dessinerRectangle(int hauteur, int largeur, int remplissages) //Pour rectan
 
 void dessinerTriangle1(int hauteur, int remplissage)
 {
-	for (int i = 0; i < hauteur; i++)
+	for (int i = 0; i <= hauteur; i++) 
 	{
-		for (int j = 0; j <=i; j++)
+		for (int j = 0; j <=i; j++) 
 		{
-			if (i == 0 || j == 0 || i == hauteur )
-			{
-				cout << "* ";
-			}
+			
+				if (j == 0 || j == i || i == hauteur )
+				{
+					cout << "* "; 
+				}
+				else
+				{
+					if (remplissage == 2)
+					{
+						cout << "  ";  // j'aime mieux deux espaces c'est plus propre à mon avis
+					}
+					else
+					{
+						cout << "# ";
+					}
+				}
 			
 		}
 		cout << endl;
@@ -103,14 +118,47 @@ void dessinerTriangle1(int hauteur, int remplissage)
  
 void dessinerTriangle2(int hauteur, int remplissage)
 {
+	for (int i = 0; i < hauteur; i++)
+	{
+		for (int j = 0; j < hauteur-i; j++) // pour avoir angle droit en haut à gauche
+		{
+			if (j==0/*ligne vertical*/ || i == 0 /*ligne horizontal*/ )
+			{
+				cout << "*";
+			}
+			else
+			{
+				cout << "  ";
+			}
+			
+		}
+		cout << endl;
+	}
 }
 
 void dessinerTriangle3(int hauteur, int remplissage)
 {
+	for (int i = 0; i < hauteur; i++)
+	{
+		for (int j = 0; j < hauteur - i; j++) // pour avoir angle droit en haut à gauche
+		{
+			if (j == hauteur/*ligne vertical*/ || i == 0 /*ligne horizontal*/)
+			{
+				cout << "*";
+			}
+			else
+			{
+				cout << "  ";
+			}
+
+		}
+		cout << endl;
+	}
 }
 
 void dessinerTriangle4(int hauteur, int remplissage)
 {
+
 }
 
 void dessinerLosange(int hauteur, int remplissage)
@@ -172,8 +220,9 @@ void traiterTriangle(int choixRemplissage)
 	hauteur = lireEntier();
 
 	system("cls");
+	
 
-	cout << "Voici votre triangle de hauteur de " << hauteur << endl;
+	cout << "Voici votre triangle " << definirRemplissageNom(choixRemplissage) << "de hauteur de " << hauteur << endl;
 
 	dessinerTriangle1(hauteur, choixRemplissage);
 	system("pause");
@@ -190,15 +239,62 @@ void traiterLosange(int choixRemplissage)
 
 	cout << "voici votre losange de hauteur de " << hauteur << endl;
 
-	// dessinerLosange();
+	dessinerLosange(hauteur, choixRemplissage);
 
 	system("pause");
 	system("cls");
 }
 
+void definirRemplissageNom(int choixRemplissage)
+{
+	if (choixRemplissage == 1)
+	{
+		cout << "plein ";
+	}
+	if (choixRemplissage == 2)
+	{
+		cout << "vide ";
+	}
+	if (choixRemplissage == 3)
+	{
+		cout << "ERREUR : ce choix est disponible seulement pour les carrés et les rectangles. ";
+	}
+	if (choixRemplissage == 4)
+	{
+		cout << "ERREUR : ce choix est disponible seulement pour les carrés et les rectangles. ";
+	}
+
+}
+
+void definirRemplissageNomCarre(int choixRemplissage)
+{
+	if (choixRemplissage == 1)
+	{
+		cout << "plein ";
+	}
+	if (choixRemplissage == 2)
+	{
+		cout << "vide ";
+	}
+	if (choixRemplissage == 3)
+	{
+		cout << "numéroté ";
+	}
+	if (choixRemplissage == 4)
+	{
+		cout << "numéroté décroissant ";
+	}
+}
+
 int genererNombreAleatoire(int min, int max)
 {
 	int nbRandom = 0;
+	min = 1; 
+	max = 4;
+
+	
+	nbRandom = rand();			// rand retourne un nombre random 
+	
 
 
 	return nbRandom;
