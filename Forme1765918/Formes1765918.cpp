@@ -5,28 +5,73 @@
 using namespace std;
 
 
+void remplissageChiffreDecroissantRectangle(int hauteur, int largeur)
+{
+	for (int i = 0; i < largeur; i++)
+	{
+		for (int j = hauteur; j >0; j--)
+		{
+			cout << j;
+		}
+		cout << endl;
+	}
+}
+
+void remplissageChiffreRectangle(int hauteur, int largeur)
+{
+	for (int i = 0; i < largeur; i++)
+	{
+		for (int j = 0; j < hauteur; j++)
+		{
+			cout << j + 1;
+		}
+		cout << endl;
+	}
+}
+
 void dessinerRectangle(int hauteur, int largeur, int remplissages) //Pour rectangle et carré
 {
+	if (remplissages == 4)
+	{
+		remplissageChiffreDecroissantRectangle(hauteur, largeur);
+	}
+	if (remplissages == 3)
+	{
+		remplissageChiffreRectangle(hauteur, largeur);
+	}
+	else
 	for (int i = 0; i < largeur; i++) // for avec le i est pour la largeur ici
 	{
 		for (int j = 0; j < hauteur; j++) // le for avec j c'est pour sortir les charactère et pour la hauteur
 		{
+			
 			if (remplissages == 2)
-			{ 
-				if (i == 0 && j <= hauteur)
-				{
-					cout << "*";
+			{
 
+
+				if (i == 0 || j == 0 || i == largeur - 1 || j == hauteur - 1)
+				{
+					cout << "* ";
 				}
-				if (j == 0 && i <= largeur)
+				else
 				{
-					cout << "*";
-				} 
+					cout << "  ";
+				}
+			}
+			else
+			{
+				if (remplissages == 1)
+				{
 
-
-
-
-
+				
+				if (i == 0 || j == 0 || i == largeur - 1 || j == hauteur - 1)
+				{
+					cout << "* ";
+				}else
+					{
+						cout << "# ";
+					}
+				}
 			}
 		}
 		cout << endl;
@@ -42,8 +87,20 @@ void dessinerRectangle(int hauteur, int largeur, int remplissages) //Pour rectan
 
 void dessinerTriangle1(int hauteur, int remplissage)
 {
+	for (int i = 0; i < hauteur; i++)
+	{
+		for (int j = 0; j <=i; j++)
+		{
+			if (i == 0 || j == 0 || i == hauteur )
+			{
+				cout << "* ";
+			}
+			
+		}
+		cout << endl;
+	}
 }
-
+ 
 void dessinerTriangle2(int hauteur, int remplissage)
 {
 }
@@ -62,6 +119,7 @@ void dessinerLosange(int hauteur, int remplissage)
 
 void traiterRectangle(int choixRemplissage)
 {
+	
 	int hauteur;
 	int largeur;
 
@@ -85,18 +143,26 @@ void traiterRectangle(int choixRemplissage)
 
 void traiterCarre(int choixRemplissage)
 {
+	
 	int hauteurLargeur;
+	int hauteur;
+	int largeur;
 
 	cout << "Indiquer la hauteur : ";
 	hauteurLargeur = lireEntier();
 
+	hauteur = hauteurLargeur;
+	largeur = hauteurLargeur;
+
 	system("cls");
 
-	cout << "voici votre carre " << "de " << hauteurLargeur << " cotes." << endl;
+	cout << "voici votre carre de " << hauteurLargeur << " cotes." << endl;
 
-	// dessinerRectangle();
+	 dessinerRectangle(hauteur, largeur, choixRemplissage);
 
 	system("pause");
+	system("cls");
+
 }
 
 void traiterTriangle(int choixRemplissage)
@@ -107,10 +173,11 @@ void traiterTriangle(int choixRemplissage)
 
 	system("cls");
 
-	cout << "Voici votre triangle " << " de hauteur de " << hauteur << endl;
+	cout << "Voici votre triangle de hauteur de " << hauteur << endl;
 
-	//dessinerTriangle1();
-
+	dessinerTriangle1(hauteur, choixRemplissage);
+	system("pause");
+	system("cls");
 }
 
 void traiterLosange(int choixRemplissage)
@@ -121,9 +188,12 @@ void traiterLosange(int choixRemplissage)
 
 	system("cls");
 
-	cout << "voici votre losange" << " de hauteur de " << hauteur << endl;
+	cout << "voici votre losange de hauteur de " << hauteur << endl;
 
 	// dessinerLosange();
+
+	system("pause");
+	system("cls");
 }
 
 int genererNombreAleatoire(int min, int max)

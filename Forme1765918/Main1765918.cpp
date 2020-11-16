@@ -2,7 +2,7 @@
 // Auteur :	   Karine Moreau
 // Modifié par : Olivier Larue
 // Date :      6 Octobre 2020
-// Date de modification : 
+// Date de modification : 17-11-2020
 
 
 #include <iostream>		// Bibliothèque qui fournit des fonctions pour permettre la communication entre le programme et l'utilisateur
@@ -15,7 +15,7 @@ int main()
 {
    // Définition des constantes 
    const int QUITTER   = 5;     // Le choix maximum dans le menu 1. Pourrait changer si le programmeur ajoute une forme suppplémentaire
-   const int RETOUR	   = 3;     // Le choix maximum dans le menu 2. Pourrait changer si le programmeur ajoute une option suppplémentaire
+   const int RETOUR	   = 5;     // Le choix maximum dans le menu 2. Pourrait changer si le programmeur ajoute une option suppplémentaire
 
    const int RECTANGLE = 1;     // Pour faciliter la lecture du code dans le switch
    const int TRIANGLE  = 2;

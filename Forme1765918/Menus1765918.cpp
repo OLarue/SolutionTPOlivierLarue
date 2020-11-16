@@ -29,12 +29,16 @@ int afficherMenu2()
 {
     const int PLEIN = 1; 
     const int VIDE = 2;
-    const int RETOUR = 3;
+    const int NUMEROTE = 3;
+    const int NUMEROTEINVERSE = 4;
+    const int RETOUR = 5;
     int choix;
 
     cout << "Choisissez le remplissage" << endl;
     cout << PLEIN << " - Plein" << endl;
     cout << VIDE << " - Vide" << endl;
+    cout << NUMEROTE << " - numéroté (disponible pour carré et rectangle seulement)" << endl;
+    cout << NUMEROTEINVERSE << " - numéroté décroissant(disponible pour carré et rectangle seulement)" << endl;
     cout << RETOUR << " - Retour au menu principale" << endl;
     cout << "Votre choix : ";
     choix = lireEntier();
