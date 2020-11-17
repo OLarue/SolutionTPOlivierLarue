@@ -212,7 +212,7 @@ void traiterCarre(int choixRemplissage) // même principe ici que pour le traiter
 	hauteurLargeur = lireEntier(); 
 
 	hauteur = hauteurLargeur;
-	largeur = hauteurLargeur;
+	largeur = hauteurLargeur; 
 
 	system("cls");
 
