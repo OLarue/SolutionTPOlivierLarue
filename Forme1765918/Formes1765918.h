@@ -14,7 +14,7 @@ void traiterCarre(int choixRemplissage);
 void traiterTriangle(int choixRemplissage);
 void traiterLosange(int choixRemplissage);
 
-void definirRemplissageNom(int choixRemplissage);
+void definirRemplissageNom(int choixRemplissage); // explication de ces fonctions dans le Formes1765918.cpp
 void definirRemplissageNomCarre(int choixRemplissage);
 
 void remplissageChiffreDecroissantRectangle(int hauteur, int largeur); // Même que le remplissage en dessous, mais en décroissant.
@@ -27,4 +27,5 @@ void dessinerTriangle3(int hauteur, int remplissage);// Fonction qui dessine un 
 void dessinerTriangle4(int hauteur, int remplissage);// Fonction qui dessine un triangle dans la position 4 dont la hauteur et le modede remplissage sont passés en paramètre.
 void dessinerLosange(int hauteur, int remplissage);// Fonction qui dessine un losange dont la hauteur et le mode de remplissage sontpassés en paramètre.
 int genererNombreAleatoire(int min, int max);// Fonction qui retourne un nombre aléatoire compris entre min et max passés en paramètre
+
 

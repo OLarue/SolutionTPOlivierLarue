@@ -8,24 +8,29 @@ using namespace std;
 
 
 
-void remplissageChiffreDecroissantRectangle(int hauteur, int largeur)
+void remplissageChiffreDecroissantRectangle(int hauteur, int largeur) // sensiblement le même principe ici mais en ordre décroissant 
 {
 	for (int i = 0; i < largeur; i++)
 	{
+
 		for (int j = hauteur; j >0; j--)
 		{
+
 			cout << j;
 		}
 		cout << endl;
 	}
 }
 
-void remplissageChiffreRectangle(int hauteur, int largeur)
+void remplissageChiffreRectangle(int hauteur, int largeur) // petit ajout ici qui est sensiblement la même chose que les tradionels, mais on print j,
+														  // le compteur, par exemple, au lieu de print des étoiles *
 {
 	for (int i = 0; i < largeur; i++)
 	{
+
 		for (int j = 0; j < hauteur; j++)
 		{
+
 			cout << j + 1;
 		}
 		cout << endl;
@@ -88,7 +93,7 @@ void dessinerRectangle(int hauteur, int largeur, int remplissages) //Pour rectan
 
 }
 
-void dessinerTriangle1(int hauteur, int remplissage)
+void dessinerTriangle1(int hauteur, int remplissage) // fonction permettant de dessiner le premier rectangle demandé dans l'énoncé
 {
 	for (int i = 0; i <= hauteur; i++) 
 	{
@@ -101,30 +106,30 @@ void dessinerTriangle1(int hauteur, int remplissage)
 				}
 				else
 				{
-					if (remplissage == 2)
+					if (remplissage == 2) // si c'est vide
 					{
-						cout << "  ";  // j'aime mieux deux espaces c'est plus propre à mon avis
+						cout << "  ";  // j'aime mieux deux espaces c'est plus propre, à mon avis. =D
 					}
-					else
+					else     // si c'est plein 
 					{
 						cout << "# ";
 					}
 				}
 			
 		}
-		cout << endl;
+		cout << endl; // pour retourner à la ligne et donner la forme
 	}
 }
  
-void dessinerTriangle2(int hauteur, int remplissage)
+void dessinerTriangle2(int hauteur, int remplissage) // ici il me manque simplement de mettre la ligne en angle mais je réussis pas à la trouver.. j'ai la ligne horizontal et vertical mais je ne trouve pas la condition pour la ligne qui rejoint les deux formants le triangle.
 {
 	for (int i = 0; i < hauteur; i++)
 	{
-		for (int j = 0; j < hauteur-i; j++) // pour avoir angle droit en haut à gauche
+		for (int j = 0; j < hauteur-i; j++) // pour avoir angle droit en haut à gauche. j'ai fait beaucoup d'essais erreurs et c'est à cela que je suis arrivé pour l'angle droit en haut à gauche
 		{
-			if (j==0/*ligne vertical*/ || i == 0 /*ligne horizontal*/ )
+			if (j==0/*ligne vertical*/ || i == 0 /*ligne horizontal*/  )
 			{
-				cout << "*";
+				cout << "* ";
 			}
 			else
 			{
@@ -136,7 +141,7 @@ void dessinerTriangle2(int hauteur, int remplissage)
 	}
 }
 
-void dessinerTriangle3(int hauteur, int remplissage)
+void dessinerTriangle3(int hauteur, int remplissage)  // j'ai essayé ici de faire différentes formes de triangle mais je n'ai pas réussis... comme le précédent. Après quelques heures d'essais je ne crois pas que je devrais mettre autant de temps simplement sur le triangle hahaha. Au moins j'aurais essayé 
 {
 	for (int i = 0; i < hauteur; i++)
 	{
@@ -161,11 +166,14 @@ void dessinerTriangle4(int hauteur, int remplissage)
 
 }
 
-void dessinerLosange(int hauteur, int remplissage)
+void dessinerLosange(int hauteur, int remplissage) // comme je n'ai trouvé qu'une seule forme de triangle, il m'en manquait 3 pour faire les losanges...
 {
+
 }
 
-void traiterRectangle(int choixRemplissage)
+void traiterRectangle(int choixRemplissage) // fonction pour traiter le rectangle, l'utilisateur y rentre les paramètres(les dimensions) et 
+//											   j'apelle la fonction qui dessine la forme(rectangle pour ce traiter) ainsi qu'afficher le message indiquant les 
+//											   dimensions de la forme (hauteur et largeur)
 {
 	
 	int hauteur;
@@ -179,8 +187,10 @@ void traiterRectangle(int choixRemplissage)
 
 	system("cls");
 
-
-	cout << "Voici votre rectangle de " << hauteur << "x" << largeur << endl;
+	
+	cout << "Voici votre rectangle ";
+	definirRemplissageNomCarre(choixRemplissage); // fonction qui permet d'afficher à l'écran le choix de remplissage de la forme et non d'afficher le chiffre lié au choix de remplissage
+	cout << " de " << hauteur << "x" << largeur << endl;
 
 	 dessinerRectangle(hauteur, largeur, choixRemplissage);
 
@@ -189,22 +199,26 @@ void traiterRectangle(int choixRemplissage)
 
 }
 
-void traiterCarre(int choixRemplissage)
+void traiterCarre(int choixRemplissage) // même principe ici que pour le traiterRectangle
 {
 	
-	int hauteurLargeur;
+	int hauteurLargeur; // hauteurlargeur ici pour mettre la même valeur de hauteur et de largeur dans dessinerRectangle puisque cette fonction prend 3 
+	//					paramètres, la hauteur la largeur et le choix de remplissage. La fonction dessinerRectangle est utilisé pour les carrés puisque c'est 
+	//					sensiblement la même chose, sauf que le carré --> hauteur et largeur ont la même valeur 
 	int hauteur;
 	int largeur;
 
 	cout << "Indiquer la hauteur : ";
-	hauteurLargeur = lireEntier();
+	hauteurLargeur = lireEntier(); 
 
 	hauteur = hauteurLargeur;
 	largeur = hauteurLargeur;
 
 	system("cls");
 
-	cout << "voici votre carre de " << hauteurLargeur << " cotes." << endl;
+	cout << "voici votre carré ";
+	definirRemplissageNomCarre(choixRemplissage);  // fonction qui permet d'afficher à l'écran le choix de remplissage de la forme et non d'afficher le chiffre lié au choix de remplissage
+	cout << " de " << hauteurLargeur << " cotés." << endl;
 
 	 dessinerRectangle(hauteur, largeur, choixRemplissage);
 
@@ -213,7 +227,7 @@ void traiterCarre(int choixRemplissage)
 
 }
 
-void traiterTriangle(int choixRemplissage)
+void traiterTriangle(int choixRemplissage) // même principe ici mais pour les triangles.
 {
 	int hauteur;
 	cout << "Indiquer la hauteur : ";
@@ -222,10 +236,30 @@ void traiterTriangle(int choixRemplissage)
 	system("cls");
 	
 
-	cout << "Voici votre triangle " << definirRemplissageNom(choixRemplissage) << "de hauteur de " << hauteur << endl;
+	cout << "Voici votre triangle ";
+	definirRemplissageNom(choixRemplissage); // fonction qui permet d'afficher à l'écran le choix de remplissage de la forme et non d'afficher le chiffre lié au choix de remplissage.
+	cout << " de hauteur de " << hauteur << endl;
 
-	dessinerTriangle1(hauteur, choixRemplissage);
-	system("pause");
+/*
+	if (genererNombreAleatoire(1, 4) == 1) // comme je n'ai pas tout les triangles dessiner et pour le bon fonctionnement du programme, je vais
+										  //mettre la section des if en commentaire puisque je ne vais pas générer un nombre aléatoire de 1 à 4 
+										  // si je n'ai pas les 4 triangles, mais je comprends le principe ici si j'avais les 4 modèles de triangle
+	{
+		dessinerTriangle1(hauteur, choixRemplissage);
+	}if (genererNombreAleatoire(1, 4) == 2)
+	{
+		dessinerTriangle2(hauteur, choixRemplissage);
+	}if (genererNombreAleatoire(1, 4) == 3)
+	{
+		dessinerTriangle3(hauteur, choixRemplissage);
+	}if (genererNombreAleatoire(1, 4) == 4)
+	{
+		dessinerTriangle4(hauteur, choixRemplissage);
+	}
+	*/
+	dessinerTriangle1(hauteur, choixRemplissage); // je met le dessinerTriangle1 ici par défault puisque je ne vais pas générer aléatoirement pour les
+												 // causes mentionnées plus haut.
+ 	system("pause");
 	system("cls");
 }
 
@@ -234,10 +268,20 @@ void traiterLosange(int choixRemplissage)
 	int hauteur;
 	cout << "Indiquer la hauteur : ";
 	hauteur = lireEntier();
+	while (hauteur % 2 == 0) // si la hauteur entrer par l'utilisateur est pair, alors il y a erreur, la hauteur doit être impair. donc boucle
+							// jusqu'à ce que l'utilisateur entre une valeur conforme.
+	{
+		cout << "ERREUR : vous devez entrer un nombre impair pour la hauteur du losange. Veuillez recommencer!" << endl;
+		
+		cout << "Indiquer la hauteur : ";
+		hauteur = lireEntier();
+	}
 
 	system("cls");
 
-	cout << "voici votre losange de hauteur de " << hauteur << endl;
+	cout << "voici votre losange ";
+	definirRemplissageNom(choixRemplissage); // fonction qui permet d'afficher à l'écran le choix de remplissage de la forme et non d'afficher le chiffre lié au choix de remplissage
+	cout << " de hauteur de " << hauteur << endl;
 
 	dessinerLosange(hauteur, choixRemplissage);
 
@@ -245,7 +289,8 @@ void traiterLosange(int choixRemplissage)
 	system("cls");
 }
 
-void definirRemplissageNom(int choixRemplissage)
+void definirRemplissageNom(int choixRemplissage) // pour afficher le choix de remplissage dans la phrase avant de dessiner, par exemple;
+												// voici votre carré (vide) de 10x10.
 {
 	if (choixRemplissage == 1)
 	{
@@ -255,19 +300,21 @@ void definirRemplissageNom(int choixRemplissage)
 	{
 		cout << "vide ";
 	}
-	if (choixRemplissage == 3)
+	if (choixRemplissage == 3)   // ici je mentionne plein meme si le choix est numéroté puisque cela est seulement disponible pour les carrés 
+								// et les rectangles, donc par défault il se fait plein.
 	{
-		cout << "ERREUR : ce choix est disponible seulement pour les carrés et les rectangles. ";
+		cout << "plein, puisque le choix numéroté est disponible seulement pour les carrés et les rectangles. ";
 	}
 	if (choixRemplissage == 4)
 	{
-		cout << "ERREUR : ce choix est disponible seulement pour les carrés et les rectangles. ";
+		cout << "plein, puisque le choix numéroté est disponible seulement pour les carrés et les rectangles. ";
 	}
-
+	
 }
 
-void definirRemplissageNomCarre(int choixRemplissage)
+void definirRemplissageNomCarre(int choixRemplissage) // même principe ici qu'utilisé plus haut, mais pour les rectangles et les carrés.
 {
+
 	if (choixRemplissage == 1)
 	{
 		cout << "plein ";
@@ -284,18 +331,12 @@ void definirRemplissageNomCarre(int choixRemplissage)
 	{
 		cout << "numéroté décroissant ";
 	}
+	
 }
 
-int genererNombreAleatoire(int min, int max)
+int genererNombreAleatoire(int min, int max) // source : cours de programmation, karine moreau 
+											// permet de génerer un nombre aléatoire entre les paramètres (min, max)
 {
-	int nbRandom = 0;
-	min = 1; 
-	max = 4;
 
-	
-	nbRandom = rand();			// rand retourne un nombre random 
-	
-
-
-	return nbRandom;
+	return rand() % (max - min + 1) + min;
 }

@@ -14,3 +14,5 @@ int validerMenu(int menu, int nbOption); //Fonction qui lit le choix de l’utilis
 						   //informations passées en paramètre.Cette fonction retourne le choix validé. 
 						   //L’utilisateur peut taper n’importe quoi au clavier, le programme ne part pas en boucle infinie.
 int lireEntier(); // source : en classe Karine Moreau
+				  // permet de lire un entier et que meme si l'utilisateur entre nimporte quoi sur le clavier, le programme ne part pas en boucle et lui
+				  // affiche un message d'erreur et de recommencer.

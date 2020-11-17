@@ -5,14 +5,16 @@ using namespace std;
 
 int afficherMenu1()
 {
+    // constante
     const int RECTANGLE = 1;     // Pour faciliter la lecture du code dans le switch
     const int TRIANGLE = 2;
     const int CARRE = 3;
     const int LOSANGE = 4;
     const int  QUITTER = 5;
+    // variable
     int choix;
-
-    cout << "Choisissez la forme" << endl;
+    //affichage du premier menu
+    cout << "Choisissez la forme" << endl; 
     cout << RECTANGLE << " - Rectangle" << endl;
     cout << TRIANGLE << " - Triangle" << endl;
     cout << CARRE << " - Carré" << endl;
@@ -27,13 +29,15 @@ int afficherMenu1()
 
 int afficherMenu2()
 {
+    // constante
     const int PLEIN = 1; 
     const int VIDE = 2;
     const int NUMEROTE = 3;
     const int NUMEROTEINVERSE = 4;
     const int RETOUR = 5;
+    //variable
     int choix;
-
+    // affichage du deuxième menu
     cout << "Choisissez le remplissage" << endl;
     cout << PLEIN << " - Plein" << endl;
     cout << VIDE << " - Vide" << endl;
@@ -51,23 +55,23 @@ int validerMenu(int menu, int nbOption)
 {
     int choix;
 
-
+    // pour définir quel menu afficher et le valider
     if (menu == 1)
     {
         choix = afficherMenu1();
     }
-    else if(menu == 2)
+    else if(menu == 2) // else if ici pour etre sur que c'est le menu 2 qui va apparaitre (et je trouve sa beau personnelement un else if, préférence personnel, pas très important hahah =) )
     {
         choix = afficherMenu2();
     }
 
-    while (choix < 1 || choix > nbOption)
+    while (choix < 1 || choix > nbOption)   // pour valider le choix entre le 1 et le nbOption, qui est soit 5 pour quitter ou retour 
     {
         cout << "ERREUR: votre choix doit être compris entre 1 et " << nbOption << endl;
         cout << "Veuillez recommencer" << endl;
         system("pause");
 
-        if (menu == 1)
+        if (menu == 1)  // pour ne pas rester pris dans une boucle infinie.
         {
             choix = afficherMenu1();
         }
@@ -80,7 +84,9 @@ int validerMenu(int menu, int nbOption)
     return choix;
 }
 
-int lireEntier()
+int lireEntier()  // source : en classe Karine Moreau
+				  // permet de lire un entier et que meme si l'utilisateur entre nimporte quoi sur le clavier, le programme ne part pas en boucle et lui
+				  // affiche un message d'erreur et de recommencer.
 {
   
         string clavier;
